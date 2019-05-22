@@ -50,13 +50,18 @@ def benchmark(num_iters=1, save_params=False, save_output=False):
             best = round(min(times) * 1000, 4)
             mean = round(sum(times) / num_iters * 1000, 4)
 
+            if repo and not repo.head.is_detached:
+                branch = repo.active_branch.name
+            else:
+                branch = ''
+
             stats = {
                 'name': func.__name__,
                 'best_time': best,
                 'mean_time': mean,
                 'date': datetime.datetime.now().strftime(DATE_FORMAT),
                 'time': datetime.datetime.now().strftime(TIME_FORMAT),
-                'branch': repo.active_branch.name if repo else '',
+                'branch': branch,
                 'commit': repo.head.commit.hexsha[:7] if repo else '',
                 'commit_date': repo.head.commit.committed_datetime.strftime(DATE_FORMAT)  # noqa
             }
