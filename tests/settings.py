@@ -10,5 +10,6 @@ def get_folder(name):
 
 DATA = get_folder('test_data')
 NO_BENCHMARK_FUNCTIONS_FILE = DATA / 'time/no_benchmark_functions.py'
+BENCHMARK_FUNCTIONS_FILE = DATA / 'time/benchmark_functions.py'
 BENCHMARK_TIME_OUTPUT_FILE = DATA / 'time/benchmark_functions.jsonl'
 BENCHMARK_MODEL_OUTPUT_FILE = DATA / 'model/benchmark_model.jsonl'

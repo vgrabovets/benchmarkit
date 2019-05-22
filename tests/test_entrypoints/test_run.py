@@ -1,10 +1,10 @@
-from tests.settings import DATA
+from tests.settings import BENCHMARK_FUNCTIONS_FILE
 
 
 def test_entrypoint(script_runner):
     ret = script_runner.run(
         'benchmark_run',
-        DATA / 'time',
+        BENCHMARK_FUNCTIONS_FILE,
         '--save_dir=/tmp/test_benchmarks_entrypoint',
         '--comment="test entrypoint"',
     )
