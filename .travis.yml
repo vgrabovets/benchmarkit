@@ -1,0 +1,31 @@
+sudo: true
+
+dist: trusty
+
+language: python
+python:
+  - 3.6.5
+
+env:
+  global:
+    - DEBIAN_FRONTEND=noninteractive
+    - CONFIG=config.ini
+
+before_install:
+  - pip install --upgrade pip
+  - pip --version
+
+install:
+  - make install_dev
+
+before_script:
+  - pip freeze
+
+jobs:
+  include:
+    - stage: lint_and_test
+      script:
+        - make lint
+        - make test
+
+cache: pip

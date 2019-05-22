@@ -1,0 +1,9 @@
+.idea/
+*.egg-info/
+__pycache__
+env/
+.env/
+.coverage
+htmlcov/
+.pytest_cache/
+.ipynb_checkpoints/
