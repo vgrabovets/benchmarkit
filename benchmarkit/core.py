@@ -63,7 +63,7 @@ def benchmark(num_iters=1, save_params=False, save_output=False):
                 'time': datetime.datetime.now().strftime(TIME_FORMAT),
                 'branch': branch,
                 'commit': repo.head.commit.hexsha[:7] if repo else '',
-                'commit_date': repo.head.commit.committed_datetime.strftime(DATE_FORMAT)  # noqa
+                'commit_date': repo.head.commit.committed_datetime.strftime(DATE_FORMAT) if repo else '',  # noqa
             }
 
             if save_params:
