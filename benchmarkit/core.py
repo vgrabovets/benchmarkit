@@ -164,7 +164,12 @@ def benchmark_run_file(
         save_dir.mkdir()
 
     for input_file in input_files:
-        save_file = save_dir / Path(input_file).stem + '.jsonl'
+        input_file = Path(input_file)
+
+        if str(input_file.name) == '__init__.py':
+            continue
+
+        save_file = save_dir / input_file.stem + '.jsonl'
 
         with input_file.open() as fp:
             code = compile(fp.read(), str(input_file), 'exec')
