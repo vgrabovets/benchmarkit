@@ -23,9 +23,11 @@ before_script:
 
 jobs:
   include:
-    - stage: lint_and_test
+    - stage: lint and test
       script:
         - make lint
+        - make test
+        - rm -rf .git
         - make test
 
 cache: pip
