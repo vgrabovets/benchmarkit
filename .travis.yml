@@ -29,7 +29,6 @@ jobs:
         - make lint
         - make test
         - codecov
-        - rm -rf .git
-        - make test
+        - make test_no_git
 
 cache: pip
