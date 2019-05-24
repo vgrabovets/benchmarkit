@@ -1,6 +1,7 @@
 # Benchmarkit
 
 [![Build Status](https://travis-ci.org/vgrabovets/benchmarkit.svg?branch=master)](https://travis-ci.org/vgrabovets/benchmarkit)
+[![codecov](https://codecov.io/gh/vgrabovets/benchmarkit/branch/master/graph/badge.svg)](https://codecov.io/gh/vgrabovets/benchmarkit)
 
 Benchmark and analyze functions' time execution and results over the course of development. 
 
