@@ -17,6 +17,7 @@ before_install:
 
 install:
   - make install_dev
+  - pip install codecov
 
 before_script:
   - pip freeze
@@ -27,6 +28,7 @@ jobs:
       script:
         - make lint
         - make test
+        - codecov
         - rm -rf .git
         - make test
 
