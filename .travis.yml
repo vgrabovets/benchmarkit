@@ -46,5 +46,7 @@ jobs:
         password:
           secure: "EOy3I5oPCGcUfGCpSqF//MkZAdYThGngd+2Xdr+cb7pmVaWBPd3SaijIHBb/zw9VeyvVkIR50cubYKvp5MyoOX7MVe6HMxGQfaxDUxV6TMO5kBd8fIal+S1wUPtjM/reL7dKqn3E8gxAZtnnAdIyHzoTgRWYGdh7OnXrfOE0Wva/TU8fg/GEkrPuHYGp+53cWwxVOH98xA6yPrDKivVysfvIwm+Wlj/0QtHN3GTmc6lztiCWTn+qoAGFZLIupzOJMBA1uFSgB1BbgitVoP/hbt8grrBXtH1P7YNZmY1zsiaRoit5IAZcGGZUNU+g80W4PggselsJ3EOgUXlU7ftSuUwYPOg3FjkT7L8lhNkHm/xU7Wj+eOZd+WmaRXvK28sxi9NXrYmnpCMrXSf7oM8SAdNwM//kSifUBb+Cl0TH8gT22Agf+5uCDXfbVVXM2IWEom0i+9OCa9F2qDG+Q04fc3p7gU4lVfhDe7rRAHuyUP81H7uW+ZvW0MWmXx+P9+BueynXBD4lut/27LUI5Iv+H7h+NLOUQvYUN2IqgS+h5QjhhVSxfKmM4qm97Dyc05lN1U2qyYCsbYGD0dRdbFHLdG9smV0ydUlMDEvjRnXh6U6T8TwVAJXTqMOJXi5IW33TCLazICQaKwLGHcL0bsjQKnTCs+pk6w6mv1yqGq1IL7M="
         distributions: sdist bdist_wheel
+        on:
+          tags: true
 
 cache: pip
