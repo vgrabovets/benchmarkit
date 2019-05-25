@@ -1,52 +1,40 @@
 sudo: true
-
 dist: trusty
-
 language: python
 python:
-  - 3.6.5
-
+- 3.6.5
 env:
   global:
-    - DEBIAN_FRONTEND=noninteractive
-    - CONFIG=config.ini
-
+  - DEBIAN_FRONTEND=noninteractive
+  - CONFIG=config.ini
 before_install:
-  - pip install --upgrade pip
-  - pip --version
-
+- pip install --upgrade pip
+- pip --version
 install:
-  - make install_dev
-  - pip install codecov
-
+- make install_dev
+- pip install codecov
 before_script:
-  - pip freeze
-
+- pip freeze
 jobs:
   include:
-    - stage: lint and test
-      script:
-        - make lint
-        - make test
-        - codecov
-        - make test_no_git
-
-    - stage: deploy
-      if: tag IS present
-
-      install:
-        - travis_retry pip install -U setuptools wheel
-
-      script:
-        - python setup.py sdist bdist_wheel
-
-      deploy:
-        provider: pypi
-        user: "vgrabovets"
-        password:
-          secure: "EOy3I5oPCGcUfGCpSqF//MkZAdYThGngd+2Xdr+cb7pmVaWBPd3SaijIHBb/zw9VeyvVkIR50cubYKvp5MyoOX7MVe6HMxGQfaxDUxV6TMO5kBd8fIal+S1wUPtjM/reL7dKqn3E8gxAZtnnAdIyHzoTgRWYGdh7OnXrfOE0Wva/TU8fg/GEkrPuHYGp+53cWwxVOH98xA6yPrDKivVysfvIwm+Wlj/0QtHN3GTmc6lztiCWTn+qoAGFZLIupzOJMBA1uFSgB1BbgitVoP/hbt8grrBXtH1P7YNZmY1zsiaRoit5IAZcGGZUNU+g80W4PggselsJ3EOgUXlU7ftSuUwYPOg3FjkT7L8lhNkHm/xU7Wj+eOZd+WmaRXvK28sxi9NXrYmnpCMrXSf7oM8SAdNwM//kSifUBb+Cl0TH8gT22Agf+5uCDXfbVVXM2IWEom0i+9OCa9F2qDG+Q04fc3p7gU4lVfhDe7rRAHuyUP81H7uW+ZvW0MWmXx+P9+BueynXBD4lut/27LUI5Iv+H7h+NLOUQvYUN2IqgS+h5QjhhVSxfKmM4qm97Dyc05lN1U2qyYCsbYGD0dRdbFHLdG9smV0ydUlMDEvjRnXh6U6T8TwVAJXTqMOJXi5IW33TCLazICQaKwLGHcL0bsjQKnTCs+pk6w6mv1yqGq1IL7M="
-        distributions: sdist bdist_wheel
-        on:
-          tags: true
-
+  - stage: lint and test
+    script:
+    - make lint
+    - make test
+    - codecov
+    - make test_no_git
+  - stage: deploy
+    if: tag IS present
+    install:
+    - travis_retry pip install -U setuptools wheel
+    script:
+    - python setup.py sdist bdist_wheel
+    deploy:
+      provider: pypi
+      user: vgrabovets
+      password:
+        secure: cAS55a1cHDxPmKFcvLtZgEDK7lEUkESVfOFRunY6xI1ZTfzvc8POYax1DM2XQiTRRB2bISUDkfpZ3Vm/7Ovhk4+10VVosdjfmrE7Ln5hA5fep7prlTgsyZyNg0dkdNWwIKeD7Nlzd02LBvikw41gPuca9SqyN9Y7TaHlM4I/iZWQRUN+mt8kdsAzb3Kb2LSnMyYXZKEdigczGI1LSJqZ7sWJq/igBtfd3Q2SZUioou7HMR2GNYQmTJRm7f2jKPUGexkEqzV9dRzTUMoF3O48O1RcI8zIRmlUd3ZXjqHf5za7ilSdi5KfXRw9Qx4p2/DU5q0QEgA9Bo5eMItHQ4LvsZABBi7a7Hto90RQZ0Wj6NJFA6QckzmRvYZQw9ue8oIVbgd3KuL6Ez/mlyFNWp2yCkPBPnGgnoFrYXskblurJl8L4cV1V5EEITKldkggvPup2V8mMVepoyeui3CmoifRjXUqiAwZjsUUSDZbRr6jr/w+Vm1hG4J3TkRicZ5wvkOiDX16c9FC8O7sTVYPWIryjVBoNzyo5/0ftzhirY1qDP3rFFqBVJUjG1ebqzSfD1mT/fVwHU7sAqPYyDuH7GyxIuEKVyXUPeBjVgR+/2PTQTVb9LfkvPogb079adoQVhFpgdHUN9RPwTw87vdDyTtWJwmwygxIJC2FCuXhpAPWRLo=
+      distributions: "sdist bdist_wheel"
+      on:
+        tags: true
 cache: pip
