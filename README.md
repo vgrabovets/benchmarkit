@@ -65,11 +65,15 @@ benchmark_results = benchmark_run(
 )  
 ```
 
+- __functions__ - function or list of functions with `benchmark` decorator
+- __save_file__ - path to file where to save results
 - __comment__ - comment to save alongside the results
 - __rows_limit__ - limit table rows in console output. Default _10_
 - __extra_fields__ - extra fields to include in console output
 - __metric__ - metric which is used for comparison. Default `mean_time`
 - __bigger_is_better__ - whether bigger value of metric indicates that result is better. For time benchmarks should be `False`, for model accuracy should be `True`. Default _False_
+
+Prints to terminal and returns list of dictionaries with data for the last run.
 
 ![Benchmark time output1](img/benchmark_time1.jpg)
 
@@ -144,11 +148,14 @@ benchmark_df = benchmark_analyze(
 )
 ```
 
+- __input_path__ - path to `.jsonl` file or directory with `.jsonl` files with benchmark results 
 - __func_name__ - display statistics for particular function. If `None` then all functions, stored in file, are displayed. Default _None_
 - __rows_limit__ - limit table rows in console output. Default _10_
 - __metric__ - metric which is used for comparison. Default `mean_time`
 - __bigger_is_better__ - whether bigger value of metric indicates that result is better. For time benchmarks should be `False`, for model accuracy should be `True`. Default _False_
 - __extra_fields__ - extra fields to include in console output
+
+Prints to terminal and returns pandas `DataFrame`.
 
 ![Benchmark analyze](img/benchmark_analyze.jpg)
 
@@ -157,4 +164,4 @@ The same can be run from command line:
 benchmark_analyze /tmp/benchmark_time.jsonl --extra_fields num_items
 ```
 
-[Other examples](notebooks/benchmark_examples.ipynb)
+[Other examples](https://nbviewer.jupyter.org/github/vgrabovets/benchmarkit/blob/master/notebooks/benchmark_examples.ipynb)
