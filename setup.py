@@ -32,7 +32,8 @@ setup(
     url='https://github.com/vgrabovets/benchmarkit',
     install_requires=install_requires,
     python_requires='>=3.6.0',
-    packages=find_packages(include=['benchmarkit']),
+    packages=find_packages(include=['benchmarkit', 'benchmarkit.*']),
+    include_package_data=True,
     entry_points={
         'console_scripts': [
             'benchmark_run = benchmarkit.entrypoints.run:entrypoint',
