@@ -23,6 +23,11 @@ Benchmark and analyze functions' time execution and results over the course of d
 - I want to know exact commits of my previous runs months ago
 - I want to benchmark accuracy, precision, recall of my models and keep track of hyperparameters 
 
+## Installation
+
+```text
+pip install benchmarkit
+```
 
 ## Usage
 ### Benchmark execution times
