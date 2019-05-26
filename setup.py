@@ -24,7 +24,8 @@ setup(
     version=version,
     description='Benchmark and analyze functions\' time execution and results over the course of development',  # noqa
     long_description=readme_text,
-    keywords=['benchmark', 'timeit'],
+    long_description_content_type="text/markdown",
+    keywords=['benchmark', 'timeit', 'time'],
     license='MIT',
     author='Vitaliy Grabovets',
     author_email='v.grabovets@gmail.com',

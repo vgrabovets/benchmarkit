@@ -76,11 +76,11 @@ benchmark_results = benchmark_run(
 
 Prints to terminal and returns list of dictionaries with data for the last run.
 
-![Benchmark time output1](img/benchmark_time1.jpg)
+![Benchmark time output1](https://raw.githubusercontent.com/vgrabovets/benchmarkit/master/img/benchmark_time1.jpg)
 
 Change `N=1000000` and rerun
 
-![Benchmark time output2](img/benchmark_time2.jpg)
+![Benchmark time output2](https://raw.githubusercontent.com/vgrabovets/benchmarkit/master/img/benchmark_time2.jpg)
 
 The same can be run from command line:
 ```text
@@ -121,11 +121,11 @@ model_benchmark_results = benchmark_run(
 )
 ```
 
-![Benchmark model1](img/benchmark_model1.jpg)
+![Benchmark model1](https://raw.githubusercontent.com/vgrabovets/benchmarkit/master/img/benchmark_model1.jpg)
 
 Change hyperparameter `C=0.5` and rerun. Output:
 
-![Benchmark model2](img/benchmark_model2.jpg)
+![Benchmark model2](https://raw.githubusercontent.com/vgrabovets/benchmarkit/master/img/benchmark_model2.jpg)
 
 The same can be run from command line:
 ```text
@@ -158,7 +158,7 @@ benchmark_df = benchmark_analyze(
 
 Prints to terminal and returns pandas `DataFrame`.
 
-![Benchmark analyze](img/benchmark_analyze.jpg)
+![Benchmark analyze](https://raw.githubusercontent.com/vgrabovets/benchmarkit/master/img/benchmark_analyze.jpg)
 
 The same can be run from command line:
 ```text
