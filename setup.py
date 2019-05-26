@@ -17,7 +17,7 @@ try:
 except IndexError:
     raise RuntimeError('requirements/prod.txt is broken')
 
-version = '0.0.1'
+version = '0.0.2'
 
 setup(
     name='benchmarkit',
