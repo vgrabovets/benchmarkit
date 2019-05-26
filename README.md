@@ -1,7 +1,7 @@
 # Benchmarkit
 
+[![PyPI version](https://badge.fury.io/py/benchmarkit.svg)](https://badge.fury.io/py/benchmarkit)
 [![Build Status](https://travis-ci.org/vgrabovets/benchmarkit.svg?branch=master)](https://travis-ci.org/vgrabovets/benchmarkit)
-[![PyPi latest version](https://img.shields.io/pypi/v/benchmarkit.svg)](https://pypi.org/project/benchmarkit/)
 [![codecov](https://codecov.io/gh/vgrabovets/benchmarkit/branch/master/graph/badge.svg)](https://codecov.io/gh/vgrabovets/benchmarkit)
 [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&repo=vgrabovets/benchmarkit)](https://dependabot.com)
 
