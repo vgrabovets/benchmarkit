@@ -17,7 +17,6 @@ from tests.settings import (
 @benchmark(num_iters=2)
 def function1():
     sleep(0.5)
-    return
 
 
 @benchmark(num_iters=2, save_params=True, save_output=True)
@@ -29,19 +28,17 @@ def function2(sleep_time=0.6):
 @benchmark(num_iters=2, save_params=True, save_output=True)
 def function3():
     sleep(0.5)
-    return
 
 
 def function_without_decorator():
     sleep(0.5)
-    return
 
 
 def test_benchmark_run():
     with tempfile.TemporaryDirectory() as temp_dir:
         result = benchmark_run(
             function1,
-            save_file=temp_dir + '/test_benchmark_run1.jsonl',
+            save_file=temp_dir + '/results/test_benchmark_run1.jsonl',
             comment='test run',
         )
     assert result[0]['name'] == 'function1'
@@ -73,7 +70,6 @@ def test_benchmark_run():
         @benchmark(num_iters=0)
         def function4():
             sleep(0.5)
-            return
 
     with tempfile.TemporaryDirectory() as temp_dir:
         result = benchmark_run(
