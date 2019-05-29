@@ -14,6 +14,7 @@ Benchmark and analyze functions' time execution and results over the course of d
 - Saves history and additional info
 - Saves function output and parameters to benchmark data science tasks
 - Easy to analyze results
+- Disables garbage collector during benchmarking
 
 ## Motivation
 
