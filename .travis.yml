@@ -7,22 +7,25 @@ env:
   global:
   - DEBIAN_FRONTEND=noninteractive
   - CONFIG=config.ini
+
 before_install:
 - pip install --upgrade pip
 - pip --version
-install:
-- make install_dev
-- pip install codecov
-before_script:
-- pip freeze
+
 jobs:
   include:
   - stage: lint and test
+    install:
+      - make install_dev
+      - pip install codecov
+    before_script:
+      - pip freeze
     script:
     - make lint
     - make test
     - codecov
     - make test_no_git
+
   - stage: deploy
     if: tag IS present
     install:
@@ -37,4 +40,18 @@ jobs:
       distributions: "sdist bdist_wheel"
       on:
         tags: true
+
+  - stage: test deploy
+    if: tag IS present
+    before_install:
+      - rm -rf benchmarkit
+    install:
+      - pip install benchmarkit
+      - pip install -r requirements/dev.txt
+    before_script:
+      - pip show benchmarkit
+      - pip freeze
+    script:
+      - pytest tests
+
 cache: pip
