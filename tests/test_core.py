@@ -5,6 +5,7 @@ from time import sleep
 import numpy as np
 import pandas as pd
 import pytest
+from git import InvalidGitRepositoryError, Repo
 from pandas.testing import assert_series_equal
 
 from benchmarkit import benchmark, benchmark_analyze, benchmark_run
@@ -84,6 +85,28 @@ def test_benchmark_run():
                 function1,
                 save_file=temp_dir + '/test_benchmark_run1.json',
             )
+
+
+def test_benchmark_run_no_repo(monkeypatch):
+    def raise_invalid_git_repo_error(*args, **kwargs):
+        raise InvalidGitRepositoryError
+
+    monkeypatch.setattr(Repo, '__init__', raise_invalid_git_repo_error)
+
+    @benchmark(num_iters=2)
+    def function_no_repo():
+        sleep(0.5)
+
+    with tempfile.TemporaryDirectory() as temp_dir:
+        result = benchmark_run(
+            function_no_repo,
+            save_file=temp_dir + '/results/test_benchmark_run1.jsonl',
+            comment='test run',
+        )
+
+    assert result[0]['branch'] == ''
+    assert result[0]['commit'] == ''
+    assert result[0]['commit_date'] == ''
 
 
 def test_benchmark_run_file():

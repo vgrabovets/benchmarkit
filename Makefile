@@ -11,10 +11,6 @@ lint:
 test:
 	pytest tests
 
-test_no_git:
-	rm -rf .git
-	pytest tests
-
 install_dev:
 	pip install -r requirements/prod.txt
 	pip install -r requirements/dev.txt
