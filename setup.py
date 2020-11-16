@@ -28,7 +28,7 @@ setup(
     keywords=['benchmark', 'timeit', 'time'],
     license='MIT',
     author='Vitaliy Grabovets',
-    author_email='v.grabovets@gmail.com',
+    author_email='vgithub@tryninja.io',
     url='https://github.com/vgrabovets/benchmarkit',
     install_requires=install_requires,
     python_requires='>=3.6.0',
